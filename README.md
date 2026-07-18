@@ -2,7 +2,8 @@
 Website Company Profile – 12BLOC Coffee Service
 
 Nama : Tamara Putri Yudhia
-NIM : 25110051  
+NIM : 25110051
+Matkul : Web Desain 2
 UMKM : 12BLOC Coffee Service  
 Lokasi : Pekanbaru, Riau  
 
