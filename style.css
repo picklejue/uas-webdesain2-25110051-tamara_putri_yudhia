@@ -1,0 +1,112 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Body & Font ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #1a2a6c; /* biru tua */
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #fdbb2d !important; /* kuning emas */
+}
+.nav-link {
+  color: #fff !important;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: #fdbb2d !important;
+}
+
+/* ===== Hero Section ===== */
+header {
+  background: linear-gradient(135deg, #1a2a6c, #fdbb2d);
+  color: white;
+  padding: 40px 20px; /* lebih kecil dari p-5 */
+}
+
+header h1 {
+  font-size: 2rem;   /* lebih kecil dari 3rem */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1rem;   /* lebih kecil dari 1.2rem */
+  margin-bottom: 15px;
+}
+
+header .btn-primary {
+  background-color: #fdbb2d;
+  border: none;
+  color: #1a2a6c;
+  font-weight: bold;
+  padding: 8px 18px; /* tombol lebih ramping */
+  border-radius: 6px;
+}
+
+header .btn-primary:hover {
+  background-color: #fff;
+  color: #1a2a6c;
+}
+
+
+/* ===== Carousel ===== */
+.carousel-item img {
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;   /* sudut sedikit melengkung */
+}
+
+/* ===== Produk Cards ===== */
+.card {
+  border: none;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card-title {
+  color: #1a2a6c;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 0.95rem;
+}
+
+/* ===== Kontak Form ===== */
+form input, form textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+form button {
+  background-color: #1a2a6c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+form button:hover {
+  background-color: #fdbb2d;
+  color: #1a2a6c;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #1a2a6c;
+  color: #fff;
+  font-size: 0.9rem;
+}

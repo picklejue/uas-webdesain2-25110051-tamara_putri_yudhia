@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri - 12BLOC Coffee Service</title>
+  <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="home.html">12BLOC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link active" href="galery.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Galeri Section -->
+  <section class="container py-5">
+    <h2 class="text-center mb-4">Galeri</h2>
+    <p class="text-center text-muted">Momen nikmat di 12BLOC</p>
+    <div class="row g-4">
+      <div class="col-md-3 gallery-item">
+        <img src="img/coffee-beer.jpg" class="img-fluid" alt="Coffee Beer" data-bs-toggle="modal" data-bs-target="#modalBeer">
+      </div>
+      <div class="col-md-3 gallery-item">
+        <img src="img/dirty-latte.jpg" class="img-fluid" alt="Dirty Latte" data-bs-toggle="modal" data-bs-target="#modalLatte">
+      </div>
+      <div class="col-md-3 gallery-item">
+        <img src="img/split-shot.jpg" class="img-fluid" alt="Split Shot" data-bs-toggle="modal" data-bs-target="#modalSplit">
+      </div>
+      <div class="col-md-3 gallery-item">
+        <img src="img/matcha-strawberry.jpg" class="img-fluid" alt="Matcha Strawberry" data-bs-toggle="modal" data-bs-target="#modalMatcha">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Example -->
+  <div class="modal fade" id="modalBeer">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <h5>23K Coffee Beer</h5>
+        <p>Kopi dengan sensasi sparkling yang unik dan segar.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-3">
+    © 2026 12BLOC Coffee Service | Pekanbaru
+  </footer>
+
+  <script src="bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
