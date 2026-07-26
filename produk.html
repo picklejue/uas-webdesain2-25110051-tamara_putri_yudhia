@@ -3,17 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produk - 12BLOC Coffee Service</title>
+  <title>Produk 12BLOC</title>
   <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <!-- SweetAlert2 untuk popup -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
+<script>
+  // Isi otomatis produk ke form saat tombol Pesan diklik
+  const orderModal = document.getElementById('orderModal');
+  orderModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const product = button.getAttribute('data-product');
+    orderModal.querySelector('#produk').value = product;
+  });
+
+  // Simulasi submit form
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Pesanan berhasil dikirim! Kami akan segera menghubungi Anda.');
+    orderModal.querySelector('button.btn-close').click();
+  });
+
+  function orderWA(product, qtyId, noteId) {
+    const qty = document.getElementById(qtyId).value;
+    const note = document.getElementById(noteId).value;
+    const phone = "6288279383045"; // ganti nomor WA resmi
+    let message = `Halo 12BLOC, saya ingin pesan ${product} jumlah ${qty}`;
+    if(note) {
+      message += `, dengan keterangan: ${note}`;
+    }
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="home.html">12BLOC</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -25,59 +56,184 @@
     </div>
   </nav>
 
-  <section class="container py-5">
-    <h2 class="text-center mb-4">Produk Kami</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="p1.jpg" class="card-img-top" alt="Coffee Beer">
-          <div class="card-body">
-            <h5 class="card-title">23K Coffee Beer</h5>
-            <p class="card-text">Kopi dengan sensasi sparkling yang unik dan segar.</p>
-          </div>
+  <!-- Coffee Section -->
+  <section class="container my-5">
+  <h2 class="section-title">Coffee</h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="matcha.jpg" class="card-img-top img-fluid" alt="Matcha">
+        <div class="card-body">
+          <h5 class="card-title">Matcha</h5>
+          <p class="card-text">Nikmati kelembutan matcha dengan karakter unik yang bikin rileks.</p>
+          <input type="number" id="qty-matcha" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-matcha" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Matcha','qty-matcha','note-matcha')" class="btn btn-success">Pesan via WhatsApp</a>
         </div>
       </div>
     </div>
-  </section>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="latte.jpg" class="card-img-top img-fluid" alt="Coffee Latte">
+        <div class="card-body">
+          <h5 class="card-title">Coffee Latte</h5>
+          <p class="card-text">Espresso pekat dipadukan dengan susu creamy, dengan latte art cantik.</p>
+          <input type="number" id="qty-latte" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-latte" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Coffee Latte','qty-latte','note-latte')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="browns.jpg" class="card-img-top img-fluid" alt="Brown Sugar">
+        <div class="card-body">
+          <h5 class="card-title">Brown Sugar</h5>
+          <p class="card-text">Perpaduan gula aren karamel dengan susu creamy, rasa legit yang bikin nagih.</p>
+          <input type="number" id="qty-browns" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-browns" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Brown Sugar','qty-browns','note-browns')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="container py-5">
-    <h2 class="text-center mb-4">Produk Kami</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="h2.jpg" class="card-img-top" alt="Coffee Beer">
-          <div class="card-body">
-            <h5 class="card-title">23K Coffee Beer</h5>
-            <p class="card-text">Kopi dengan sensasi sparkling yang unik dan segar.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="H2.jpg" class="card-img-top" alt="Coffee Beer">
-          <div class="card-body">
-            <h5 class="card-title">23K Coffee Beer</h5>
-            <p class="card-text">Kopi dengan sensasi sparkling yang unik dan segar.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-    <section class="container py-5">
-    <h2 class="text-center mb-4">Produk Kami</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="p3.jpg" class="card-img-top" alt="Coffee Beer">
-          <div class="card-body">
-            <h5 class="card-title">23K Coffee Beer</h5>
-            <p class="card-text">Kopi dengan sensasi sparkling yang unik dan segar.</p>
-          </div>
+  <!-- Base Line Up Section -->
+  <section class="container my-5">
+  <h2 class="section-title">Base Line Up</h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="p2.jpg" class="card-img-top img-fluid" alt="alonica">
+        <div class="card-body">
+          <h5 class="card-title">Alonica</h5>
+          <p class="card-text">Espresso creamy dengan sentuhan buah</p>
+          <input type="number" id="qty-Alonica" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Alonica" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Alonica','qty-Alonica','note-Alonica')" class="btn btn-success">Pesan via WhatsApp</a>
         </div>
       </div>
     </div>
-  </section>
-  <footer class="text-center py-3">
-    © 2026 12BLOC Coffee Service | Pekanbaru
-  </footer>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="p3.jpg" class="card-img-top img-fluid" alt="Irish Coffe">
+        <div class="card-body">
+          <h5 class="card-title">Irish Coffe</h5>
+          <p class="card-text">Kopi dengan cream lembut.</p>
+          <input type="number" id="qty-Irish Coffe" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Irish Coffe" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Irish Coffe','qty-Irish Coffe','note-Irish Coffe')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="p4.jpg" class="card-img-top img-fluid" alt="Mont Blanc">
+        <div class="card-body">
+          <h5 class="card-title">Mont Blanc</h5>
+          <p class="card-text">Kopi creamy taburan bubuk manis.</p>
+          <input type="number" id="qty-Mont Blanc" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Mont Blanc" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Mont Blanc','qty-Mont Blanc','note-Mont Blanc')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="container my-5">
+  <h2 class="section-title">Hampers</h2>
+  <div class="row text-center">
+    <!-- Bloc 1 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="h1.jpg" class="card-img-top img-fluid" alt="Bloc 1">
+        <div class="card-body">
+          <h5 class="product-title">Bloc 1</h5>
+          <p class="card-text">1 Ltr Minuman + 2 Toples Kue Kering</p>
+          <p class="fw-bold text-primary">280K</p>
+          <input type="number" id="qty-Bloc 1" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Bloc 1" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Bloc 1','qty-Bloc 1','note-Bloc 1')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <!-- Bloc 2 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="h2.jpg" class="card-img-top img-fluid" alt="Bloc 2">
+        <div class="card-body">
+          <h5 class="product-title">Bloc 2</h5>
+          <p class="card-text">Bloc M 250ml + 1 Box Brownies</p>
+          <p class="fw-bold text-primary">65K</p>
+          <input type="number" id="qty-Bloc 2" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Bloc 2" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Bloc 2','qty-Bloc 2','note-Bloc 2')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <!-- Bloc 3 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm product-card">
+        <img src="h3.jpg" class="card-img-top img-fluid" alt="Bloc 3">
+        <div class="card-body">
+          <h5 class="product-title">Bloc 3</h5>
+          <p class="card-text">1 Ltr Minuman (Coffee / Non Coffee)</p>
+          <p class="fw-bold text-primary">110K</p>
+          <input type="number" id="qty-Bloc 3" class="form-control mb-2" placeholder="Jumlah" min="1" value="1">
+          <input type="text" id="note-Bloc 3" class="form-control mb-2" placeholder="Keterangan tambahan (opsional)">
+          <a href="#" onclick="orderWA('Bloc 3','qty-Bloc 3','note-Bloc 3')" class="btn btn-success">Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+<footer>
+  <p class="mb-0">© 2026 12BLOC Coffee Service | Pekanbaru</p>
+  <small>Sahabat Meow – Teman Ngopi</small>
+  <div class="mt-3">
+    <p>Ikuti kami di Instagram: 
+      <a href="https://www.instagram.com/12.bloc/" target="_blank" style="color:#fdbb2d; font-weight:bold;">
+        @12.bloc
+      </a>
+    </p>
+    <p class="mx-auto" style="max-width:600px; font-size:0.9rem; color:#ddd;">
+      Konsep 12BLOC adalah menghadirkan suasana hangat dengan kopi berkualitas, 
+      desain playful bertema kucing, dan pengalaman ngopi yang jadi sahabat obrolan. 
+      Kami percaya setiap cangkir punya cerita.
+    </p>
+  </div>
+</footer>
+
+  <!-- Script Popup -->
+  <script>
+    function showDetail(product) {
+      const data = {
+        latte: {title: "Coffee Latte", text: "Espresso dengan susu creamy, lembut dan hangat.", img: "latte.jpg", anim: "animate__fadeInDown"},
+        matcha: {title: "Matcha", text: "Matcha hijau segar dengan rasa khas Jepang.", img: "matcha.jpg", anim: "animate__bounceIn"},
+        browns: {title: "Brown Sugar", text: "Minuman manis dengan sentuhan karamel gula merah, lembut dan creamy.", img: "browns.jpg", anim: "animate__zoomIn"},
+        alonica: {title: "Alonica", text: "Minuman amber dengan citrus twist.", img: "p2.jpg", anim: "animate__fadeInUp"},
+        p3: {title: "Irish Coffe", text: "Kopi pekat dengan lapisan creamy yang hangat dan menenangkan.", img: "p3.jpg", anim: "animate__jackInTheBox"},
+        mont: {title: "Mont Blanc", text: "Kopi creamy dengan taburan bubuk manis.", img: "p4.jpg", anim: "animate__lightSpeedInRight"},
+        h1: {title: "Hamper Bloc 1", text: "Paket kopi + cookies premium.", img: "h1.jpg", anim: "animate__fadeInDown"},
+        h2: {title: "Hamper Bloc 2", text: "Paket kopi + snack manis.", img: "h2.jpg", anim: "animate__bounceIn"},
+        h3: {title: "Hamper Bloc 3", text: "Paket eksklusif dengan tumbler dan madu.", img: "h3.jpg", anim: "animate__zoomIn"}
+      };
+      const p = data[product];
+      Swal.fire({
+        title: p.title,
+        text: p.text,
+        imageUrl: p.img,
+        imageWidth: 300,
+        imageAlt: p.title,
+        showClass: {popup: `animate__animated ${p.anim}`},
+        hideClass: {popup: "animate__animated animate__fadeOutUp"}
+      });
+    }
+  </script>
 </body>
 </html>
